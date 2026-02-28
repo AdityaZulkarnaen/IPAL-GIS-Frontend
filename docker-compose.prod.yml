@@ -1,0 +1,47 @@
+# Production overrides
+# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+
+services:
+  # ============================================================
+  # PHP-FPM Application (Production)
+  # ============================================================
+  app:
+    build:
+      target: production
+    container_name: ipal-gis-app-prod
+    restart: always
+    volumes:
+      - app_public:/var/www/html/public
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+
+  # ============================================================
+  # Nginx Web Server (Production)
+  # ============================================================
+  nginx:
+    container_name: ipal-gis-nginx-prod
+    restart: always
+    volumes:
+      - app_public:/var/www/html/public:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  # ============================================================
+  # MySQL Database (Production)
+  # ============================================================
+  mysql:
+    container_name: ipal-gis-mysql-prod
+    restart: always
+    ports: []  # Don't expose MySQL externally in production
+
+  # ============================================================
+  # Node.js - Disabled in Production
+  # (Assets are built during Docker image build)
+  # ============================================================
+  node:
+    profiles:
+      - disabled
+
+volumes:
+  app_public:
+    driver: local

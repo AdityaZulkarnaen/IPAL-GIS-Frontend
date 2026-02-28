@@ -1,0 +1,44 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+
+# Docker (keep docker/ dir since Dockerfile COPYs from it)
+Dockerfile
+docker-compose*.yml
+
+# Storage (will be created at runtime)
+storage/logs/*
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Build artifacts
+public/hot
+public/build/
+
+# Documentation
+*.md
+LICENSE
+
+# Testing
+tests/
+phpunit.xml
+.phpunit.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
