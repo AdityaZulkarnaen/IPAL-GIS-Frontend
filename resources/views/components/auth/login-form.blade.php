@@ -13,14 +13,14 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            {{-- Email --}}
+            {{-- Username --}}
             <x-ui.input
-                id="email"
-                type="email"
-                name="email"
-                label="Email"
-                :value="old('email')"
-                autocomplete="email"
+                id="username"
+                type="text"
+                name="username"
+                label="Username"
+                :value="old('username')"
+                autocomplete="username"
                 class="font-bold"
                 required
             />
