@@ -56,7 +56,7 @@ class AuthController extends Controller
             sameSite: 'lax',
         );
 
-        return redirect()->intended('/')->withCookie($cookie);
+        return redirect()->route('admin.dashboard')->withCookie($cookie);
     }
 
     /**
