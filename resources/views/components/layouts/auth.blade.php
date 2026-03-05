@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <div class="flex min-h-screen">
+    <div class="flex flex-col md:flex-row min-h-screen">
         {{ $slot }}
     </div>
 </body>
