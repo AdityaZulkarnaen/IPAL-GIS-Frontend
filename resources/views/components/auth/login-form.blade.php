@@ -4,6 +4,13 @@
 
         {{-- Heading --}}
         <h1 class="text-2xl font-bold text-gray-900 mb-1">Masuk ke Akun Anda</h1>
+        {{-- Error flash --}}
+        @if (session('error'))
+            <div class="mb-5 px-4 py-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+
         {{-- Form --}}
         <form method="POST" action="{{ route('login') }}">
             @csrf
